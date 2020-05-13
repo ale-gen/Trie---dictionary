@@ -83,7 +83,7 @@ public class Project_Main {
 		
 		while (end != 0) {
 			System.out.println("What do you want to do? ");
-			System.out.println("\n[1] - search the word \n[2] - search all words with prefix \n[3] - return the words number \n[4] - return the nodes number \n[5] - return the most frequently prefix with n length \n[6] - return the most frequently prefix with length equal or more than n \n[7] - return the file (dictionary) size \n[8] - return the most frequently prefix with length equal or less than n");
+			System.out.println("\n[1] - search the word \n[2] - search all words with prefix \n[3] - return the words number \n[4] - return the nodes number \n[5] - return the most frequently prefix with n length \n[6] - return the file (dictionary) size");
 			int choice = getInt();
 			
 			switch (choice) {
@@ -124,28 +124,8 @@ public class Project_Main {
 					}
 					break;
 					
-			case 6:	System.out.println("Enter the maximum length of prefix: ");
-					int minLength= getInt();
-					List<Prefix> result2 = new ArrayList<Prefix>();
-					int max2 = trie.findCommonPrefixWithMoreLength(trie.getRoot(), minLength, trie.getRoot().getCounter(), new char[minLength], 0, result2);
-					System.out.println("Max frequency: " + max2);
-					for (Prefix p : result2) {
-						System.out.println(p.value);
-					}
-					break;
-					
-			case 7: long size = getFileSize("dictionary.txt");
+			case 6: long size = getFileSize("dictionary.txt");
 					System.out.println("Rozmiar pliku: " + size / 1024);
-					break;
-					
-			case 8: System.out.println("Enter the maximum length of prefix: ");
-					int maxLength = getInt();
-					List<Prefix> result3 = new ArrayList<Prefix>();
-					int max3 = trie.findCommonPrefixWithLessLength(trie.getRoot(), maxLength, 0, new char[maxLength], 0, result3);
-					System.out.println("Max frequency: " + max3);
-					for (Prefix p : result3) {
-						System.out.println(p.value);
-					}
 					break;
 					
 			case 0: end = 0;
